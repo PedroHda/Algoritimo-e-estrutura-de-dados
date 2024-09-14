@@ -44,7 +44,11 @@ public class Dados {
     }
 
     public String toString() {
-        return this.Tipo + ": " + this.base + " " + this.altura + " " + this.baseMaior + " " +"Area do"+ this.Tipo + ": " + this.area;
+        if(this.Tipo == "Trapézio"){
+            return this.Tipo + ": " + this.base + " " + this.altura + " " + this.baseMaior + " " +"Area do"+ this.Tipo + ": " + this.area;
+        }else{
+            return this.Tipo + ": " + this.base + " " + this.altura + "Area do"+ this.Tipo + ": " + this.area;
+        }
     }
 
 }
