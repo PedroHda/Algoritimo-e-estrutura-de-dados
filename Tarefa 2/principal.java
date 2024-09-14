@@ -24,12 +24,13 @@ public class principal {
         System.out.println("Informe o valor da Altura do Retangulo");
         double AlturaRetangulo = Double.parseDouble(entrada.nextLine());
         System.out.println("Informe o valor da Base Maior do Trapezio");
-        double BaseMenorTrapezio = Double.parseDouble(entrada.nextLine());
-        System.out.println("Informe o valor da Base menor do Trapezio");
-        double AlturaTrapezio = Double.parseDouble(entrada.nextLine());
-        System.out.println("Informe o valor da Altura do Trapezio");
         double BaseMaiorTrapezio = Double.parseDouble(entrada.nextLine());
-
+        System.out.println("Informe o valor da Base menor do Trapezio");
+        double BaseMenorTrapezio = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Altura do Trapezio");
+        double AlturaTrapezio = Double.parseDouble(entrada.nextLine());
+        
+        entrada.close();
 
         Vetor lista = new Vetor();
         Vetor Areas = new Vetor();
