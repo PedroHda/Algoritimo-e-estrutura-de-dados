@@ -54,13 +54,14 @@ public class principal {
         Areas.adiciona(Retangulo2);
 
 
+        Trapezio.setbaseMaior(BaseMaiorTrapezio);
         Trapezio.setbase(BaseMenorTrapezio);
         Trapezio.setaltura(AlturaTrapezio);
-        Trapezio.setbaseMaior(BaseMaiorTrapezio);
         lista.adiciona(Trapezio);
 
         Dados Trapezio2 = lista.pegarDados(2);
         Trapezio2.setarea(areaTrapézio(Trapezio2.getbaseMaior(),Trapezio2.getbase(), Trapezio2.getaltura()), "Trapézio");
+        System.out.println(Trapezio2.getbaseMaior() + " " +Trapezio2.getbase()+ " " + Trapezio2.getaltura());
         Areas.adiciona(Trapezio2);
 
 
