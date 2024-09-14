@@ -32,26 +32,39 @@ public class principal {
 
 
         Vetor lista = new Vetor();
+        Vetor Areas = new Vetor();
         Dados Triangulo = new Dados();
         Dados Retangulo = new Dados();
         Dados Trapezio = new Dados();
 
         Triangulo.setbase(baseTriangulo);
         Triangulo.setaltura(AlturaTriangulo);
-        Triangulo.setarea(areaTriangulo(baseTriangulo,AlturaTriangulo), "Triangulo");
         lista.adiciona(Triangulo);
+
+        Dados Triangulo2 = lista.pegarDados(0);
+        Triangulo2.setarea(areaTriangulo(Triangulo2.getbase(),Triangulo2.getaltura()), "Triangulo");
+        Areas.adiciona(Triangulo2);
         
         Retangulo.setbase(BaseRetangulo);
         Retangulo.setaltura(AlturaRetangulo);
-        Retangulo.setarea(areaRetangulo(BaseRetangulo,AlturaRetangulo), "Retangulo");
         lista.adiciona(Retangulo);
+
+        Dados Retangulo2 = lista.pegarDados(1);
+        Retangulo2.setarea(areaRetangulo(Retangulo2.getbase(),Retangulo2.getaltura()), "Retangulo");
+        Areas.adiciona(Retangulo2);
+
 
         Trapezio.setbase(BaseMenorTrapezio);
         Trapezio.setaltura(AlturaTrapezio);
         Trapezio.setbaseMaior(BaseMaiorTrapezio);
-        Trapezio.setarea(areaTrapézio(BaseMaiorTrapezio,BaseMenorTrapezio, AlturaTrapezio), "Trapézio");
         lista.adiciona(Trapezio);
 
-        System.out.println(lista);
+        Dados Trapezio2 = lista.pegarDados(2);
+        Trapezio2.setarea(areaTrapézio(Trapezio2.getbaseMaior(),Trapezio2.getbase(), Trapezio2.getaltura()), "Trapézio");
+        Areas.adiciona(Trapezio2);
+
+
+
+        System.out.println(Areas);
     }
 }
