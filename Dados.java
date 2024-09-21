@@ -1,30 +1,55 @@
-public class Dados {
-   
-        // private String elem;
-        
-        // void setAdiciona(String elementos) {
-        //     this.elem = elementos;
-        // }
-        // String getPegaElem(){
-        //     return this.elem;
-        // }
-        private int numero;
-        private String endereco;
 
-        public void setNumero(int Nome){
-            this.numero = Nome;
+public class Dados {
+
+    private double base;
+
+    private double altura;
+
+    private double baseMaior;
+
+    private double area;
+
+    private String Tipo;
+
+    public void setbase(double Base) {
+        this.base = Base;
+    }
+
+    public double getbase() {
+        return this.base;
+    }
+
+    public void setaltura(double Altura) {
+        this.altura = Altura;
+    }
+
+    public double getaltura() {
+        return this.altura;
+    }
+
+    public void setbaseMaior(double BaseMaior) {
+        this.baseMaior = BaseMaior;
+    }
+
+    public double getbaseMaior() {
+        return this.baseMaior;
+    }
+
+    public void setarea(double Nome, String TipodeObjeto) {
+        this.area = Nome;
+        this.Tipo = TipodeObjeto;
+    }
+
+    public double getarea() {
+        return this.area;
+    }
+
+    public String toString() {
+        if (this.Tipo == "Trapézio") {
+            return this.Tipo + ": " + this.base + " " + this.altura + " " + this.baseMaior + " " + "Area do " + this.Tipo + ": " + this.area + " ";
+        } else {
+            return this.Tipo + ": " + this.base + " " + this.altura + " " + "Area do " + this.Tipo + ": " + this.area + " ";
         }
-        // public void setEndereco(String Endereco){
-        //     this.endereco = Endereco;
-        // }
-        // public String getNome(){
-        //     return this.nome;
-        // }
-        public int getnumero(){
-            return this.numero;
-        }
-        public String toString(){
-            return " " + this.numero;
-        }
-    
+    }
+
 }

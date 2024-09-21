@@ -1,42 +1,72 @@
 import java.util.Scanner;
 
 public class principal {
-    public static boolean ehPrimo(int numero) {
-        if (numero <= 1)
-            return false;
-        if (numero == 2)
-            return true;
-        if (numero % 2 == 0)
-            return false;
-        for (int i = 3; i * i <= numero; i += 2) {
-            if (numero % i == 0)
-                return false;
-        }
-        return true;
+    
+    public static double areaTriangulo(double base, double altura){
+        return (base*altura)/2;
+    }
+    public static double areaRetangulo(double base, double altura){
+        return (base*altura);
+    }
+    public static double areaTrapézio(double baseMaior,double baseMenor, double altura){
+        return ((baseMaior+baseMenor)*altura)/2;
     }
 
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
+        System.out.println("Informe o valor da Base do Triangulo");
+        double baseTriangulo = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Altura do Triangulo");
+        double AlturaTriangulo = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da base do Retangulo");
+        double BaseRetangulo = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Altura do Retangulo");
+        double AlturaRetangulo = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Base Maior do Trapezio");
+        double BaseMaiorTrapezio = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Base menor do Trapezio");
+        double BaseMenorTrapezio = Double.parseDouble(entrada.nextLine());
+        System.out.println("Informe o valor da Altura do Trapezio");
+        double AlturaTrapezio = Double.parseDouble(entrada.nextLine());
+        
+        entrada.close();
 
-        Vetor listaPrimos = new Vetor();
-        System.out.println("Digite números inteiros entre 1 e 100 (digite 0 para encerrar):");
+        Vetor lista = new Vetor();
+        Vetor Areas = new Vetor();
+        Dados Triangulo = new Dados();
+        Dados Retangulo = new Dados();
+        Dados Trapezio = new Dados();
 
-        while (true) {
-            int numero = entrada.nextInt();
-            if (numero == 0)
-                break; // Termina a leitura se digitar 0
-            if (numero < 1 || numero > 100) {
-                System.out.println("Número fora do intervalo. Digite um número entre 1 e 100.");
-                continue;
-            }
-            if (ehPrimo(numero)) {
-                Dados dado = new Dados();
-                dado.setNumero(numero);
-                listaPrimos.adiciona(dado);
-            }
-        }
+        Triangulo.setbase(baseTriangulo);
+        Triangulo.setaltura(AlturaTriangulo);
+        lista.adiciona(Triangulo);
 
-        System.out.println("Números primos armazenados: " + listaPrimos);
+        Dados Triangulo2 = lista.pegarDados(0);
+        Triangulo2.setarea(areaTriangulo(Triangulo2.getbase(),Triangulo2.getaltura()), "Triangulo");
+        Areas.adiciona(Triangulo2);
+        
+        Retangulo.setbase(BaseRetangulo);
+        Retangulo.setaltura(AlturaRetangulo);
+        lista.adiciona(Retangulo);
+
+        Dados Retangulo2 = lista.pegarDados(1);
+        Retangulo2.setarea(areaRetangulo(Retangulo2.getbase(),Retangulo2.getaltura()), "Retangulo");
+        Areas.adiciona(Retangulo2);
+
+
+        Trapezio.setbaseMaior(BaseMaiorTrapezio);
+        Trapezio.setbase(BaseMenorTrapezio);
+        Trapezio.setaltura(AlturaTrapezio);
+        lista.adiciona(Trapezio);
+
+        Dados Trapezio2 = lista.pegarDados(2);
+        Trapezio2.setarea(areaTrapézio(Trapezio2.getbaseMaior(),Trapezio2.getbase(), Trapezio2.getaltura()), "Trapézio");
+        Areas.adiciona(Trapezio2);
+
+
+
+        System.out.println(Areas.contem("2"));
+        System.out.println(Areas.pega(0));
     }
 }
