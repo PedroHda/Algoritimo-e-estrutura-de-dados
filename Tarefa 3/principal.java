@@ -19,7 +19,7 @@ public class principal {
             int opcao = Integer.parseInt(entrada.nextLine());
 
             switch (opcao) {
-                case 1: 
+                case 1:
                     Dados DadosPagamento = new Dados();
 
                     System.out.println("Insira o Fornecedor:   ");
@@ -37,10 +37,23 @@ public class principal {
                     ListaDePagamentos.adiciona(lenghtLista, DadosPagamento);
                     break;
                 case 2:
-                    System.out.println("Comming soon");
-                    System.out.println("*****************************************************");
-                    System.out.println("Encerrando o programa.");
-                    condition = 1;
+                    System.out.println("Nome do fornecedor para baixa: ");
+                    String nomeFornecedor = entrada.nextLine();
+
+                    int posicao = -1;
+                    for (int i = 0; i < ListaDePagamentos.Tamanho(); i++) {
+                        if (ListaDePagamentos.pegarDados(i).getFornecedor().equals(nomeFornecedor)) {
+                            posicao = i;
+                            break;
+                        }
+                    }
+
+                    if (posicao != -1) {
+                        ListaDePagamentos.remover(posicao);
+                        System.out.println("Pagamento removido com sucesso!");
+                    } else {
+                        System.out.println("Fornecedor não encontrado!");
+                    }
                     break;
                 case 3:
                     System.out.println(ListaDePagamentos);
@@ -60,7 +73,7 @@ public class principal {
             }
 
         }
-        
+
         // Vetor lista = new Vetor();
         // Dados Trapezio = new Dados();
         // Trapezio.setValor(12312);
