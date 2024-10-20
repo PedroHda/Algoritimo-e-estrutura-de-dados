@@ -10,36 +10,30 @@ public class Vetor {
         this.total++;
     }
 
-
-    // publico adiciona(posicao, dados) {
-    //     se(.não. posicaoValida(posicao)) {
-    //     throw new IllegalArgumentException("Posicao inválida");
-    //     }
-    //     para (indice = total - 1; indice >= posicao; indice--) {
-    //     dados[indice + 1] = dados[indice];
-    //     }
-    //     dados[posicao] = dados;
-    //     total++;
-    //     }
-
     private boolean posicaoValida(int posicao) {
         return posicao >= 0 && posicao <= total;
-        }
- 
-    public void adiciona(int posicao, Dados elem){
-        if(!posicaoValida(posicao)){
+    }
+
+    public void adiciona(int posicao, Dados elem) {
+        if (!posicaoValida(posicao)) {
             throw new IllegalArgumentException("Posicao inválida");
         }
-        for (int indice = this.total -1 ; indice >= posicao; indice--) {
+        for (int indice = this.total - 1; indice >= posicao; indice--) {
             dados[indice + 1] = dados[indice];
         }
         dados[posicao] = elem;
         total++;
     }
 
-
-
-
+    public void remover(int posicao) {
+        if (!posicaoOcupada(posicao)) {
+            throw new IllegalArgumentException("Posicao inválida");
+        }
+        for (int i = posicao; i < total - 1; i++) {
+            dados[i] = dados[i + 1];
+        }
+        this.total--;
+    }
 
     public int Tamanho() {
         return this.total;
